@@ -75,10 +75,10 @@ def generate_hw01(question):
     #Formatting the output
     extract_array = re.findall(r'\{.*?\}', response.content)
     extract_array = [eval(item) for item in extract_array]
-    number_of_items = len(extract_array)
+    #number_of_items = len(extract_array)
     #print(number_of_items)
     output_array = {"Result": extract_array}
-    output_json = json.dumps(output_array, indent=number_of_items, ensure_ascii=False).encode('utf8').decode()
+    output_json = json.dumps(output_array, indent=2, ensure_ascii=False).encode('utf8').decode()
  
     #print(output_json) 
 
