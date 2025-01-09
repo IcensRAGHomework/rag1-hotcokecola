@@ -24,21 +24,35 @@ def generate_hw01(question):
     )
 
     output_national = {
-        "date": "2024-10-10",
-        "name": "國慶日"
-    }
-    output_one = {
-        "date": "2024-01-01",
-        "name": "元旦"
-    }
-    output_teacher = {
-        "date": "2024-09-28",
-        "name": "教師節"
+        "Result": [
+            {
+                "date": "2024-10-10",
+                "name": "國慶日"
+            }
+        ]
     }
 
-    json_national = json.dumps(output_national, ensure_ascii=False).encode('utf8').decode()
-    json_one = json.dumps(output_one, ensure_ascii=False).encode('utf8').decode()
-    json_teacher = json.dumps(output_teacher, ensure_ascii=False).encode('utf8').decode()
+    output_one = {
+        "Result": [
+            {
+                "date": "2024-01-01",
+                "name": "元旦"
+            }
+        ]
+    }
+
+    output_teacher = {
+        "Result": [
+            {
+                "date": "2024-09-28",
+                "name": "教師節"
+            }
+        ]
+    }
+
+    json_national = json.dumps(output_national, indent=4, ensure_ascii=False).encode('utf8').decode()
+    json_one = json.dumps(output_one, indent=4, ensure_ascii=False).encode('utf8').decode()
+    json_teacher = json.dumps(output_teacher, indent=4, ensure_ascii=False).encode('utf8').decode()
     
     examples = [
         { "input": "10月節日", "output": json_national},
@@ -62,7 +76,7 @@ def generate_hw01(question):
         [
             ("system", "把當月份的節日用指定格式輸出"),
             few_shot_prompt,
-            ("human", "{input}"),
+            ("human", "{input}只要一個"),
         ]
     )
  
@@ -70,19 +84,22 @@ def generate_hw01(question):
     chain = final_prompt | llm
     response = chain.invoke({"input": question})
 
-    #print(response.content)
+    print(response.content)
+    #output_json = json.dumps(response.content, indent=4, ensure_ascii=False).encode('utf8').decode()
+    #output_json = json.dumps(response.content, indent=4)
 
-    #Formatting the output
-    extract_array = re.findall(r'\{.*?\}', response.content)
-    extract_array = [eval(item) for item in extract_array]
-    #number_of_items = len(extract_array)
-    #print(number_of_items)
-    output_array = {"Result": extract_array}
-    output_json = json.dumps(output_array, indent=2, ensure_ascii=False).encode('utf8').decode()
- 
+    ##Formatting the output
+    #extract_array = re.findall(r'\{.*?\}', response.content)
+    #extract_array = [eval(item) for item in extract_array]
+    ##number_of_items = len(extract_array)
+    ##print(number_of_items)
+    #output_array = {"Result": extract_array}
+    #output_json = json.dumps(output_array, indent=2, ensure_ascii=False).encode('utf8').decode()
+    #
     #print(output_json) 
 
-    return output_json
+    #return output_json
+    return response.content
     
     
 def generate_hw02(question):
