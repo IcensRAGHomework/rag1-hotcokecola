@@ -115,7 +115,7 @@ def generate_hw03(question2, question3):
     #print(response) 
     response2 = hw03.agent_hw03(question2, question3, response)
     output_data = response2["output"]
-    output_json = json.loads(output_data)
+    #output_json = json.loads(output_data)
     #output_json = json.dumps(output_json, indent=4, ensure_ascii=False).encode('utf8').decode()
     #print(output_json)
     
@@ -127,7 +127,7 @@ def generate_hw03(question2, question3):
     #result = output_json["Result"]["add"]
     #print(type(result))
     #print(output_data) 
-    return output_json
+    return output_data
 
     #pass
     
