@@ -115,8 +115,21 @@ def generate_hw03(question2, question3):
     #print(response) 
     response2 = hw03.agent_hw03(question2, question3, response)
     output_data = response2["output"]
+    output_json = json.loads(output_data)
+    #output_json = json.dumps(output_json, indent=4, ensure_ascii=False).encode('utf8').decode()
+    #print(output_json)
+    
+    #print(f"Type of output_json: {type(output_json)}")  # Should be <class 'dict'>
+    #print(f"Type of output_json['Result']: {type(output_json['Result'])}")  # Should be <class 'dict'>
+
+    
+    
+    #result = output_json["Result"]["add"]
+    #print(type(result))
     #print(output_data) 
-    return output_data
+    return output_json
+
+    #pass
     
 def generate_hw04(question):
     pass

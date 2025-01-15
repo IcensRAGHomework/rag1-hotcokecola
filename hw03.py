@@ -27,39 +27,35 @@ gpt_config = get_model_configuration(gpt_chat_version)
 
 def agent_hw03(question2, question3, response):
     output_oct = {
-        "Result": [
+        "Result":
             {
-                "add": True,
+                "add": 1,
                 "reason": "蔣中正誕辰紀念日並未包含在十月的節日清單中。目前十月的現有節日包括國慶日、重陽節、華僑節、台灣光復節和萬聖節。因此，如果該日被認定為節日，應該將其新增至清單中。"
             }
-       ]
     }
 
     output_may1 = {
-        "Result": [
+        "Result":
             {
-                "add": False,
+                "add": 0,
                 "reason": "母親節紀念日已包含在五月的節日清單中。目前五月的現有節日包括勞動節、媽祖誕辰、文藝節、母親節和佛誕日。"
             }
-        ]
     }
 
     output_may2 = {
-        "Result": [
+        "Result":
             {
-                "add": False,
+                "add": 0,
                 "reason": "勞動節紀念日已包含在五月的節日清單中。目前五月的現有節日包括勞動節、媽祖誕辰、文藝節、母親節和佛誕日。"
             }
-        ]
     }
 
     output_aug = {
-        "Result": [
+        "Result":
             {
-                "add": True,
+                "add": 1,
                 "reason": "母親節紀念日並未包含在八月的節日清單中。目前八月的現有節日包括父親節、七夕情人節和中元節。因此，如果該日被認定為節日，應該將其新增至清單中。"
             }
-        ]
     }
 
     json_oct = json.dumps(output_oct, indent=4, ensure_ascii=False).encode('utf8').decode()
@@ -88,7 +84,8 @@ def agent_hw03(question2, question3, response):
 
     prompt = ChatPromptTemplate.from_messages(
         [
-            ("system", "這個任務需看前一次的問題與歷史紀錄,並回答true or false.原因需要列出歷史紀錄內所有當月的節日.\
+            ("system", "這個任務需看前一次的問題與歷史紀錄,並回答問題 true or false. \
+                原因需要列出歷史紀錄內所有當月的節日. \
                 所有回傳內容要按照我們定義的JSON格式"),
             few_shot_prompt,
             ("placeholder", "{chat_history}"),
