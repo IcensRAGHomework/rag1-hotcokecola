@@ -4,6 +4,7 @@ import json
 import traceback
 import re
 
+
 from dotenv import load_dotenv
 
 
@@ -22,7 +23,7 @@ from langchain.agents import AgentExecutor, create_tool_calling_agent, tool
 gpt_chat_version = 'gpt-4o'
 gpt_config = get_model_configuration(gpt_chat_version)
 
-CALENDARIFIC_API_KEY="VaIKuhkMlufwBdWje5KnmGByrxS34lN4"
+#CALENDARIFIC_API_KEY="VaIKuhkMlufwBdWje5KnmGByrxS34lN4"
 
 def agent_hw02(question):
 
@@ -119,7 +120,9 @@ def agent_hw02(question):
         Returns:
             str: The search results.
         """
-        api_key = os.getenv('CALENDARIFIC_API_KEY')
+        api_key = "VaIKuhkMlufwBdWje5KnmGByrxS34lN4" #os.getenv('CALENDARIFIC_API_KEY')
+        #print("E")
+        #print(api_key)
         url = f'https://calendarific.com/api/v2/holidays?api_key={api_key}&country={country}&year={year}&month={month}'
     
         #print(url)
