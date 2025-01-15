@@ -1,9 +1,11 @@
 import json
 import traceback
 import re
+import hw02
 
 
 from model_configurations import get_model_configuration
+from model_configurations import get_holidays
 
 from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage
@@ -103,7 +105,11 @@ def generate_hw01(question):
     
     
 def generate_hw02(question):
-    pass
+    
+    response = hw02.agent_hw02(question)
+    output_data = response["output"]
+    #output_json = json.dumps(output_data, indent=2, ensure_ascii=False).encode('utf8').decode()
+    return output_data
     
 def generate_hw03(question2, question3):
     pass
