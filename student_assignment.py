@@ -5,8 +5,6 @@ import hw02
 
 
 from model_configurations import get_model_configuration
-from model_configurations import get_holidays
-
 from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate

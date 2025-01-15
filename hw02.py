@@ -16,7 +16,6 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
 
 from model_configurations import get_model_configuration
-from model_configurations import get_holidays
 
 #Tool
 from langchain.agents import AgentExecutor, create_tool_calling_agent, tool
@@ -24,8 +23,6 @@ from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 
 from model_configurations import get_model_configuration
-from model_configurations import get_holidays
-
 
 
 gpt_chat_version = 'gpt-4o'
