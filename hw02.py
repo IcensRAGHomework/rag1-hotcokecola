@@ -22,7 +22,7 @@ from langchain.agents import AgentExecutor, create_tool_calling_agent, tool
 gpt_chat_version = 'gpt-4o'
 gpt_config = get_model_configuration(gpt_chat_version)
 
-
+CALENDARIFIC_API_KEY="VaIKuhkMlufwBdWje5KnmGByrxS34lN4"
 
 def agent_hw02(question):
 
