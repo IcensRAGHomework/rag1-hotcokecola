@@ -7,23 +7,17 @@ import re
 from dotenv import load_dotenv
 
 
-from langchain_openai import ChatOpenAI
+#from langchain_openai import ChatOpenAI
 from langchain.agents import AgentExecutor, create_openai_functions_agent
-from langchain import hub
-
+#from langchain import hub
 from langchain_openai import AzureChatOpenAI
-from langchain_core.messages import AIMessage, HumanMessage
+#from langchain_core.messages import AIMessage, HumanMessage
+from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
-
 from model_configurations import get_model_configuration
-
-#Tool
 from langchain.agents import AgentExecutor, create_tool_calling_agent, tool
 from langchain_anthropic import ChatAnthropic
-from langchain_core.prompts import ChatPromptTemplate
-
-from model_configurations import get_model_configuration
-
+#from langchain_core.prompts import ChatPromptTemplate
 
 gpt_chat_version = 'gpt-4o'
 gpt_config = get_model_configuration(gpt_chat_version)
