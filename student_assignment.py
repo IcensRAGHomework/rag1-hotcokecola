@@ -2,7 +2,7 @@ import json
 import traceback
 import re
 import hw02
-
+import hw03
 
 from model_configurations import get_model_configuration
 from langchain_openai import AzureChatOpenAI
@@ -110,7 +110,13 @@ def generate_hw02(question):
     return output_data
     
 def generate_hw03(question2, question3):
-    pass
+    
+    response = generate_hw02(question2)
+    #print(response) 
+    response2 = hw03.agent_hw03(question2, question3, response)
+    output_data = response2["output"]
+    #print(output_data) 
+    return output_data
     
 def generate_hw04(question):
     pass
